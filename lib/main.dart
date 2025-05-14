@@ -1,0 +1,99 @@
+import 'dart:io';
+
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_ce_flutter/adapters.dart';
+import 'package:project_i/config/route/app_route.dart';
+import 'package:project_i/config/route/route_observer.dart';
+import 'package:project_i/config/session/app_sesion.dart';
+import 'package:project_i/config/theme/theme.dart';
+import 'package:project_i/l10n/app_localizations.dart';
+import 'package:project_i/presentation/pages/dashboard/provider.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+final getIt = GetIt.instance;
+
+void main() async {
+  HttpOverrides.global = IgnoreCertificateErrorOverrides();
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Other
+  getIt.registerSingleton<AppRouter>(AppRouter());
+  await Hive.initFlutter();
+  await AppSession().openBox();
+
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => MyAppState();
+}
+
+class MyAppState extends State<MyApp> {
+  final _appRouter = getIt<AppRouter>();
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => DashboardProvider()),
+      ],
+      child: ValueListenableBuilder<Box>(
+          valueListenable: Hive.box(AppSession.hiveSession).listenable(),
+          builder: (context, box, _) {
+            Locale locale = Locale(AppSession().getLanguage(setBox: box));
+
+            return MaterialApp.router(
+              routerDelegate: _appRouter.delegate(
+                navigatorObservers: () => [
+                  MyObserver(),
+                  AutoRouteObserver(),
+                ],
+              ),
+              routeInformationParser: _appRouter.defaultRouteParser(),
+              locale: locale,
+              localizationsDelegates: const [
+                AppLocalizations.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: const [
+                Locale('en'),
+                Locale('id'),
+              ],
+              debugShowCheckedModeBanner: false,
+              title: 'Project I',
+              theme: kappTheme,
+            );
+          }),
+    );
+  }
+}
+
+class IgnoreCertificateErrorOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext? context) {
+    return super.createHttpClient(context)
+      ..badCertificateCallback =
+          ((X509Certificate cert, String host, int port) {
+        return true;
+      });
+  }
+}

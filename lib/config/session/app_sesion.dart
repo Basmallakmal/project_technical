@@ -1,0 +1,150 @@
+
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:hive_ce_flutter/adapters.dart';
+import 'package:project_i/presentation/utils/language_support.dart';
+
+class AppSession {
+  static FlutterSecureStorage storage = const FlutterSecureStorage();
+
+  static String keyToken = "token";
+  static String keyId = "id";
+  static String hiveSession = "project-i-session-hive";
+
+  static String keyName = "name";
+  static String keyUsername = "username";
+  static String keyPhoto = "photo_profile";
+  static String keyRole = "user_role";
+  static String keyAccountVerif = "account-verif-status";
+  static String keyLanguage = "user-language";
+
+  /// SECURE STORAGE
+
+  saveToken(String token) async {
+    await storage.write(key: keyToken, value: token);
+  }
+
+  Future<String> getToken() async {
+    return await storage.read(key: keyToken) ?? "";
+  }
+
+  saveId(String value) async {
+    await storage.write(key: keyId, value: value);
+  }
+
+  Future<String> getId() async {
+    return await storage.read(key: keyId) ?? "";
+  }
+
+  /// HIVE SESSION
+
+  Future openBox() async {
+    await Hive.openBox(hiveSession);
+  }
+
+  saveName(String value, {Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    box.put(keyName, value);
+  }
+
+  String getName({Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    return box.get(keyName, defaultValue: "");
+  }
+
+  savePhotoProfile(String value, {Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    box.put(keyPhoto, value);
+  }
+
+  String getPhotoProfile({Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    return box.get(keyPhoto, defaultValue: "");
+  }
+
+  saveUserRole(String value, {Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    box.put(keyRole, value);
+  }
+
+  String getUserRole({Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    return box.get(keyRole, defaultValue: "");
+  }
+
+  saveUsername(String value, {Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    box.put(keyUsername, value);
+  }
+
+  String getUsername({Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    return box.get(keyUsername, defaultValue: "");
+  }
+
+  saveAccVerifStatus(bool value, {Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    box.put(keyAccountVerif, value);
+  }
+
+  bool getAccVerifStatus({Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    return box.get(keyAccountVerif, defaultValue: false);
+  }
+
+  saveLanguage(String region, {Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    switch (region) {
+      case "ID":
+        region = LanguageSupport.id.value;
+        break;
+      case "EN":
+        region = LanguageSupport.en.value;
+        break;
+      default:
+        region = LanguageSupport.id.value;
+        break;
+    }
+    if (region != getLanguage()) {
+      box.put(keyLanguage, region);
+    }
+  }
+
+  String getLanguage({Box? setBox}) {
+    var box = setBox ?? Hive.box(hiveSession);
+    return box.get(keyLanguage, defaultValue: LanguageSupport.id.value);
+  }
+
+  /// MAIN FUNCTION
+
+  Future saveAppSession({
+    required String token,
+    required String name,
+    required String username,
+    required String photo,
+    required String role,
+    required bool accountVerif,
+    required String language,
+  }) async {
+    await saveToken(token);
+    await saveName(name);
+    await saveUsername(username);
+    await savePhotoProfile(photo);
+    await saveUserRole(role);
+    await saveAccVerifStatus(accountVerif);
+    await saveLanguage(language);
+  }
+
+  Future deleteAppSession() async {
+    var box = Hive.box(hiveSession);
+    List<String> deleteKeyList = [
+      keyName,
+      keyPhoto,
+      keyRole,
+      keyAccountVerif,
+      keyLanguage,
+    ];
+
+    await box.deleteAll(deleteKeyList);
+    await storage.deleteAll();
+  }
+}
