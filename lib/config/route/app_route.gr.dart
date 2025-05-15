@@ -9,39 +9,21 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:project_technical/presentation/pages/dashboard/view.dart'
-    as _i1;
-import 'package:project_technical/presentation/pages/login/view.dart' as _i2;
+import 'package:auto_route/auto_route.dart' as _i2;
+import 'package:project_technical/presentation/pages/home/view.dart' as _i1;
 
 /// generated route for
-/// [_i1.DashboardPage]
-class DashboardPageRoute extends _i3.PageRouteInfo<void> {
-  const DashboardPageRoute({List<_i3.PageRouteInfo>? children})
-    : super(DashboardPageRoute.name, initialChildren: children);
+/// [_i1.HomePage]
+class HomePageRoute extends _i2.PageRouteInfo<void> {
+  const HomePageRoute({List<_i2.PageRouteInfo>? children})
+    : super(HomePageRoute.name, initialChildren: children);
 
-  static const String name = 'DashboardPageRoute';
+  static const String name = 'HomePageRoute';
 
-  static _i3.PageInfo page = _i3.PageInfo(
+  static _i2.PageInfo page = _i2.PageInfo(
     name,
     builder: (data) {
-      return const _i1.DashboardPage();
-    },
-  );
-}
-
-/// generated route for
-/// [_i2.LoginPage]
-class LoginPageRoute extends _i3.PageRouteInfo<void> {
-  const LoginPageRoute({List<_i3.PageRouteInfo>? children})
-    : super(LoginPageRoute.name, initialChildren: children);
-
-  static const String name = 'LoginPageRoute';
-
-  static _i3.PageInfo page = _i3.PageInfo(
-    name,
-    builder: (data) {
-      return _i2.LoginPage();
+      return const _i1.HomePage();
     },
   );
 }

@@ -1,7 +1,9 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_ce_flutter/adapters.dart';
@@ -10,7 +12,7 @@ import 'package:project_technical/config/route/route_observer.dart';
 import 'package:project_technical/config/session/app_sesion.dart';
 import 'package:project_technical/config/theme/theme.dart';
 import 'package:project_technical/l10n/app_localizations.dart';
-import 'package:project_technical/presentation/pages/dashboard/provider.dart';
+import 'package:project_technical/presentation/pages/home/provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -19,11 +21,17 @@ final getIt = GetIt.instance;
 void main() async {
   HttpOverrides.global = IgnoreCertificateErrorOverrides();
   WidgetsFlutterBinding.ensureInitialized();
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('google_fonts/OFL.txt');
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
+
 
   // Other
   getIt.registerSingleton<AppRouter>(AppRouter());
   await Hive.initFlutter();
   await AppSession().openBox();
+  GoogleFonts.config.allowRuntimeFetching = false;
 
   runApp(const MyApp());
 }
@@ -52,7 +60,7 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => DashboardProvider()),
+        ChangeNotifierProvider(create: (context) => HomeProvider()),
       ],
       child: ValueListenableBuilder<Box>(
           valueListenable: Hive.box(AppSession.hiveSession).listenable(),
@@ -80,7 +88,7 @@ class MyAppState extends State<MyApp> {
               ],
               debugShowCheckedModeBanner: false,
               title: 'Project Technical',
-              theme: kappTheme,
+              theme: MaterialTheme(createTextTheme(context)).mainTheme(),
             );
           }),
     );

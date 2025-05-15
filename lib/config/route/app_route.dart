@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:project_technical/config/route/auth_guard.dart';
 
 import 'app_route.gr.dart';
 
@@ -12,33 +11,10 @@ class AppRouter extends RootStackRouter {
 
   @override
   final List<AutoRoute> routes = [
-    // AutoRoute(
-    //   path: '/dashboard',
-    //   page: DashboardPageRoute.page,
-    //   initial: true,
-    //   children: [
-    //     AutoRoute(
-    //       path: 'home',
-    //       page: HomePageRoute.page,
-    //     ),
-    //     AutoRoute(
-    //       path: 'announcement',
-    //       page: AnnouncementPageRoute.page,
-    //     ),
-    //     AutoRoute(
-    //       path: 'profile',
-    //       page: ProfilePageRoute.page,
-    //     ),
-    //   ],
-    // ),
     AutoRoute(
       path: '/',
-      page: LoginPageRoute.page,
+      page: HomePageRoute.page,
       initial: true,
     ),
-    // AutoRoute(
-    //   path: '/login',
-    //   page: LoginPageRoute.page,
-    // ),
   ];
 }
