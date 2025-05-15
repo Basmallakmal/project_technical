@@ -5,6 +5,11 @@ import 'state.dart';
 class QuestionThreeProvider extends ChangeNotifier {
   final state = QuestionThreeState();
 
+  void resetState() {
+    state.count = 0;
+    notifyListeners();
+  }
+
   void increment() {
     state.count++;
     notifyListeners();

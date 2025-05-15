@@ -6,8 +6,21 @@ import 'package:provider/provider.dart';
 import '../../../config/theme/theme.dart';
 
 @RoutePage()
-class QuestionThreePage extends StatelessWidget {
+class QuestionThreePage extends StatefulWidget {
   const QuestionThreePage({super.key});
+
+  @override
+  State<StatefulWidget> createState() => QuestionThreePageState();
+}
+
+class QuestionThreePageState extends State<QuestionThreePage> {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      context.read<QuestionThreeProvider>().resetState();
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +86,8 @@ class QuestionThreePage extends StatelessWidget {
                           provider.increment();
                         },
                         style: FilledButton.styleFrom(
-                          backgroundColor: Theme.of(context).colorScheme.primary,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
                           iconSize: 32,
                           minimumSize: Size(60, 60),
                         ),
