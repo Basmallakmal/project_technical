@@ -171,6 +171,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get submit => 'Kirim';
 
   @override
+  String get empty_data => 'Data tidak ditemukan';
+
+  @override
   String get change_language => 'Ubah Bahasa';
 
   @override
@@ -184,4 +187,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get indonesian => 'Indonesian';
+
+  @override
+  String get no_connection_get_data => 'Tidak ada koneksi internet, data diambil dari cache';
 }

@@ -178,4 +178,10 @@ class LanguageValue {
 
   static String get indonesian =>
       AppLocalizations.of(AppServices.context)!.indonesian;
+
+  static String get empty_data =>
+      AppLocalizations.of(AppServices.context)!.empty_data;
+
+  static String get no_connection_get_data =>
+      AppLocalizations.of(AppServices.context)!.no_connection_get_data;
 }

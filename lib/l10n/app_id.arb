@@ -54,9 +54,11 @@
   "input_form": "Form Input",
   "refresh": "Refresh",
   "submit": "Kirim",
+  "empty_data": "Data tidak ditemukan",
   "change_language": "Ubah Bahasa",
   "change_language_desc": "Silahkan pilih bahasa yang Anda inginkan",
   "change_language_confirmation": "Apakah Anda yakin ingin mengubah bahasa?",
   "english": "English",
-  "indonesian": "Indonesian"
+  "indonesian": "Indonesian",
+  "no_connection_get_data": "Tidak ada koneksi internet, data diambil dari cache"
 }

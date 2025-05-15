@@ -171,6 +171,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get submit => 'Submit';
 
   @override
+  String get empty_data => 'Data not found';
+
+  @override
   String get change_language => 'Change Language';
 
   @override
@@ -184,4 +187,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get indonesian => 'Indonesian';
+
+  @override
+  String get no_connection_get_data => 'No connection, get data from cache';
 }

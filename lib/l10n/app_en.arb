@@ -54,9 +54,11 @@
   "input_form": "Input Form",
   "refresh": "Refresh",
   "submit": "Submit",
+  "empty_data": "Data not found",
   "change_language": "Change Language",
   "change_language_desc": "Select your preferred language",
   "change_language_confirmation": "Are you sure you want to change the language?",
   "english": "English",
-  "indonesian": "Indonesian"
+  "indonesian": "Indonesian",
+  "no_connection_get_data": "No connection, get data from cache"
 }

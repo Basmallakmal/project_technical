@@ -419,6 +419,12 @@ abstract class AppLocalizations {
   /// **'Submit'**
   String get submit;
 
+  /// No description provided for @empty_data.
+  ///
+  /// In en, this message translates to:
+  /// **'Data not found'**
+  String get empty_data;
+
   /// No description provided for @change_language.
   ///
   /// In en, this message translates to:
@@ -448,6 +454,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Indonesian'**
   String get indonesian;
+
+  /// No description provided for @no_connection_get_data.
+  ///
+  /// In en, this message translates to:
+  /// **'No connection, get data from cache'**
+  String get no_connection_get_data;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
