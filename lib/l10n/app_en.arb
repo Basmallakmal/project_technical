@@ -60,5 +60,6 @@
   "change_language_confirmation": "Are you sure you want to change the language?",
   "english": "English",
   "indonesian": "Indonesian",
-  "no_connection_get_data": "No connection, get data from cache"
+  "no_connection_get_data": "No connection, get data from cache",
+  "detail_data": "Detail Data"
 }

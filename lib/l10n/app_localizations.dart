@@ -460,6 +460,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No connection, get data from cache'**
   String get no_connection_get_data;
+
+  /// No description provided for @detail_data.
+  ///
+  /// In en, this message translates to:
+  /// **'Detail Data'**
+  String get detail_data;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

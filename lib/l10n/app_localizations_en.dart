@@ -190,4 +190,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get no_connection_get_data => 'No connection, get data from cache';
+
+  @override
+  String get detail_data => 'Detail Data';
 }

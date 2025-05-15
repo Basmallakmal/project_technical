@@ -190,4 +190,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get no_connection_get_data => 'Tidak ada koneksi internet, data diambil dari cache';
+
+  @override
+  String get detail_data => 'Detail Data';
 }

@@ -184,4 +184,7 @@ class LanguageValue {
 
   static String get no_connection_get_data =>
       AppLocalizations.of(AppServices.context)!.no_connection_get_data;
+
+  static String get detail_data =>
+      AppLocalizations.of(AppServices.context)!.detail_data;
 }
