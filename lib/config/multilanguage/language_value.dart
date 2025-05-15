@@ -1,4 +1,4 @@
-import 'package:project_i/l10n/app_localizations.dart';
+import 'package:project_technical/l10n/app_localizations.dart';
 
 import '../../presentation/utils/app_services.dart';
 

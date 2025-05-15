@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:project_i/config/multilanguage/language_value.dart';
-import 'package:project_i/config/session/app_sesion.dart';
+import 'package:project_technical/config/multilanguage/language_value.dart';
+import 'package:project_technical/config/session/app_sesion.dart';
 
 import '../../config.dart';
 import '../route/app_route.gr.dart';

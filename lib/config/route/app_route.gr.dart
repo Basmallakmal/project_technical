@@ -10,8 +10,9 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:project_i/presentation/pages/dashboard/view.dart' as _i1;
-import 'package:project_i/presentation/pages/login/view.dart' as _i2;
+import 'package:project_technical/presentation/pages/dashboard/view.dart'
+    as _i1;
+import 'package:project_technical/presentation/pages/login/view.dart' as _i2;
 
 /// generated route for
 /// [_i1.DashboardPage]

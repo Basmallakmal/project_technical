@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:project_i/config/route/auth_guard.dart';
+import 'package:project_technical/config/route/auth_guard.dart';
 
 import 'app_route.gr.dart';
 

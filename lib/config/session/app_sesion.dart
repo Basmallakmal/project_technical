@@ -1,7 +1,7 @@
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_ce_flutter/adapters.dart';
-import 'package:project_i/presentation/utils/language_support.dart';
+import 'package:project_technical/presentation/utils/language_support.dart';
 
 class AppSession {
   static FlutterSecureStorage storage = const FlutterSecureStorage();

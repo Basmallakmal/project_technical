@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_i/config/route/app_route.dart';
-import 'package:project_i/main.dart';
+import 'package:project_technical/config/route/app_route.dart';
+import 'package:project_technical/main.dart';
 
 class AppServices {
   static BuildContext get context =>

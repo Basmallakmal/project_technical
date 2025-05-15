@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_ce_flutter/adapters.dart';
-import 'package:project_i/config/route/app_route.dart';
-import 'package:project_i/config/route/route_observer.dart';
-import 'package:project_i/config/session/app_sesion.dart';
-import 'package:project_i/config/theme/theme.dart';
-import 'package:project_i/l10n/app_localizations.dart';
-import 'package:project_i/presentation/pages/dashboard/provider.dart';
+import 'package:project_technical/config/route/app_route.dart';
+import 'package:project_technical/config/route/route_observer.dart';
+import 'package:project_technical/config/session/app_sesion.dart';
+import 'package:project_technical/config/theme/theme.dart';
+import 'package:project_technical/l10n/app_localizations.dart';
+import 'package:project_technical/presentation/pages/dashboard/provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -79,7 +79,7 @@ class MyAppState extends State<MyApp> {
                 Locale('id'),
               ],
               debugShowCheckedModeBanner: false,
-              title: 'Project I',
+              title: 'Project Technical',
               theme: kappTheme,
             );
           }),
