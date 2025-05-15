@@ -16,15 +16,15 @@ class ApiConstant {
 
   factory ApiConstant() => _instance;
 
-  // static String baseUrl = ConfigEnvironments.getEnvironments().url;
-  // static String baseUrlImage = ConfigEnvironments.getEnvironments().urlMedia;
+  static String baseUrl = ConfigEnvironments.getEnvironments().url;
+  static String baseUrlImage = ConfigEnvironments.getEnvironments().urlMedia;
 
   final dio = createDio();
   final rawDio = createRawDio();
 
   static Dio createDio() {
     var dio = Dio(BaseOptions(
-      // baseUrl: baseUrl,
+      baseUrl: baseUrl,
       receiveTimeout: const Duration(seconds: 90),
       connectTimeout: const Duration(seconds: 90),
       // sendTimeout: const Duration(seconds: 90),
@@ -112,34 +112,34 @@ class ApiConstant {
                 );
               case 401:
 
-              /// TODO: handle unauthorized
-              // AppServices.navRouter.replaceAll([
-              //   LoginPageRoute(
-              //     unAuthorized: true,
-              //     onLoginResult: (_) {
-              //       if (_) {
-              //         AppServices.navRouter.replace(const HomePageRoute());
-              //       }
-              //     },
-              //   ),
-              // ]);
+                /// TODO: handle unauthorized
+                // AppServices.navRouter.replaceAll([
+                //   LoginPageRoute(
+                //     unAuthorized: true,
+                //     onLoginResult: (_) {
+                //       if (_) {
+                //         AppServices.navRouter.replace(const HomePageRoute());
+                //       }
+                //     },
+                //   ),
+                // ]);
                 throw UnauthorizedException(
                   err.requestOptions,
                   customMessage: message,
                 );
               case 403:
 
-              /// TODO: handle unverified
-              // AppServices.navRouter.replaceAll([
-              //   LoginPageRoute(
-              //     unAuthorized: true,
-              //     onLoginResult: (_) {
-              //       if (_) {
-              //         AppServices.navRouter.replace(const HomePageRoute());
-              //       }
-              //     },
-              //   ),
-              // ]);
+                /// TODO: handle unverified
+                // AppServices.navRouter.replaceAll([
+                //   LoginPageRoute(
+                //     unAuthorized: true,
+                //     onLoginResult: (_) {
+                //       if (_) {
+                //         AppServices.navRouter.replace(const HomePageRoute());
+                //       }
+                //     },
+                //   ),
+                // ]);
                 throw UnauthorizedException(
                   err.requestOptions,
                   customMessage: message,
@@ -197,7 +197,7 @@ class ApiConstant {
 
   static Dio createRawDio() {
     var dio = Dio(BaseOptions(
-      // baseUrl: baseUrl,
+      baseUrl: baseUrl,
       receiveTimeout: const Duration(seconds: 90),
       connectTimeout: const Duration(seconds: 90),
       // sendTimeout: const Duration(seconds: 90),
@@ -262,11 +262,8 @@ class ApiConstant {
     return dio;
   }
 
-  /// AUTH
-  static String authLogin = "login";
-
   /// POST
-  static String getPost = "";
+  static String getPost = "posts";
 }
 
 class BadRequestException extends DioException {
