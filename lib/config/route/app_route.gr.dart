@@ -61,7 +61,7 @@ class QuestionThreePageRoute extends _i5.PageRouteInfo<void> {
   static _i5.PageInfo page = _i5.PageInfo(
     name,
     builder: (data) {
-      return _i3.QuestionThreePage();
+      return const _i3.QuestionThreePage();
     },
   );
 }
@@ -77,7 +77,7 @@ class QuestionTwoPageRoute extends _i5.PageRouteInfo<void> {
   static _i5.PageInfo page = _i5.PageInfo(
     name,
     builder: (data) {
-      return _i4.QuestionTwoPage();
+      return const _i4.QuestionTwoPage();
     },
   );
 }
