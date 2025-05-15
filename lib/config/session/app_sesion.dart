@@ -1,5 +1,6 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_ce_flutter/adapters.dart';
+import 'package:project_technical/domain/model/post_model.dart';
 import 'package:project_technical/presentation/utils/language_support.dart';
 
 class AppSession {
@@ -13,6 +14,8 @@ class AppSession {
   static String keyToken = "token";
   static String keyId = "id";
   static String hiveSession = "project-tech-session-hive";
+
+  static String hivePostData = "post-data-hive";
 
   static String keyName = "name";
   static String keyUsername = "username";
@@ -43,6 +46,7 @@ class AppSession {
 
   Future openBox() async {
     await Hive.openBox(hiveSession);
+    await Hive.openBox<PostModel>(hivePostData);
   }
 
   saveName(String value, {Box? setBox}) {

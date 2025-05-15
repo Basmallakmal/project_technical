@@ -11,8 +11,12 @@ import 'package:project_technical/config/route/app_route.dart';
 import 'package:project_technical/config/route/route_observer.dart';
 import 'package:project_technical/config/session/app_sesion.dart';
 import 'package:project_technical/config/theme/theme.dart';
+import 'package:project_technical/hive/hive_registrar.g.dart';
 import 'package:project_technical/l10n/app_localizations.dart';
 import 'package:project_technical/presentation/pages/home/provider.dart';
+import 'package:project_technical/presentation/pages/question_one/provider.dart';
+import 'package:project_technical/presentation/pages/question_three/provider.dart';
+import 'package:project_technical/presentation/pages/question_two/provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -26,10 +30,10 @@ void main() async {
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
 
-
   // Other
   getIt.registerSingleton<AppRouter>(AppRouter());
   await Hive.initFlutter();
+  Hive.registerAdapters();
   await AppSession().openBox();
   GoogleFonts.config.allowRuntimeFetching = false;
 
@@ -61,6 +65,9 @@ class MyAppState extends State<MyApp> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => HomeProvider()),
+        ChangeNotifierProvider(create: (context) => QuestionOneProvider()),
+        ChangeNotifierProvider(create: (context) => QuestionTwoProvider()),
+        ChangeNotifierProvider(create: (context) => QuestionThreeProvider()),
       ],
       child: ValueListenableBuilder<Box>(
           valueListenable: Hive.box(AppSession.hiveSession).listenable(),
