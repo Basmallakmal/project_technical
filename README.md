@@ -4,6 +4,27 @@ This project is using the latest version of Flutter. To get started, make sure y
 installed on your machine. You can follow the instructions on
 the [Flutter website](https://flutter.dev/docs/get-started/install) to set up Flutter.
 
+## Instaled Pub Packages
+
+List of installed pub packages in this project:
+
+- [dio] (https://pub.dev/packages/dio) to make API call
+- [auto_route] (https://pub.dev/packages/auto_route) to manage route
+- [provider] (https://pub.dev/packages/provider) for state management
+- [google_fonts] (https://pub.dev/packages/google_fonts) to use Google Fonts
+- [Hive_ce] (https://pub.dev/packages/hive_ce_flutter) to store non-sensitive data
+- [FlutterSecureStorage] (https://pub.dev/packages/flutter_secure_storage) to store sensitive data
+- [get_it] (https://pub.dev/packages/get_it) to register singleton services
+- [pretty_dio_logger] (https://pub.dev/packages/pretty_dio_logger) to log Dio API call
+- [shimmer] (https://pub.dev/packages/shimmer) to create shimmer effect
+- [flutter_auto_size_text] (https://pub.dev/packages/flutter_auto_size_text) to create auto size text
+- [infinite_scroll_pagination] (https://pub.dev/packages/infinite_scroll_pagination) to build infinite scroll list
+- [internet_connection_checker_plus] (https://pub.dev/packages/internet_connection_checker_plus) to check internet connection
+- [loading_overlay] (https://pub.dev/packages/loading_overlay) to create loading overlay on the screen
+- [email_validator] (https://pub.dev/packages/email_validator) to validate email address
+- [flutter_gen] (https://pub.dev/packages/flutter_gen) to generate assets file for easy and convenient use
+- [internationalization] (https://docs.flutter.dev/accessibility-and-localization/internationalization) to add multilanguage support
+
 ## How to run this project
 
 Important pub packages:
