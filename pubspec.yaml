@@ -1,4 +1,4 @@
-name: project_i
+name: project_technical
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -41,6 +41,7 @@ dev_dependencies:
   build_runner: ^2.4.12
   hive_ce_generator: ^1.8.2
   auto_route_generator: ^10.0.1
+  change_app_package_name: ^1.5.0
 
 flutter:
 
