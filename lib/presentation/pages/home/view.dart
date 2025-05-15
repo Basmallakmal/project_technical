@@ -1,10 +1,12 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_ce_flutter/adapters.dart';
+import 'package:project_technical/config/route/app_route.gr.dart';
 import 'package:project_technical/config/session/app_sesion.dart';
 import 'package:project_technical/config/theme/theme.dart';
 import 'package:project_technical/gen/assets.gen.dart';
 import 'package:project_technical/presentation/pages/home/provider.dart';
+import 'package:project_technical/presentation/utils/app_services.dart';
 import 'package:project_technical/presentation/utils/language_support.dart';
 import 'package:project_technical/presentation/widget/home_widget/flag_item.dart';
 import 'package:project_technical/presentation/widget/home_widget/menu_item.dart';
@@ -60,7 +62,9 @@ class HomePage extends StatelessWidget {
                           style: Theme.of(context).textTheme.bodyLarge,
                         ),
                         MenuItem(
-                          onTap: () {},
+                          onTap: () {
+                            AppServices.navRouter.push(QuestionOnePageRoute());
+                          },
                           title: LanguageValue.question_1,
                         ),
                         MenuItem(
