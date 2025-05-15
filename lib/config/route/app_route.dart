@@ -16,5 +16,17 @@ class AppRouter extends RootStackRouter {
       page: HomePageRoute.page,
       initial: true,
     ),
+    AutoRoute(
+      path: '/question-one',
+      page: QuestionOnePageRoute.page,
+    ),
+    AutoRoute(
+      path: '/question-two',
+      page: QuestionTwoPageRoute.page,
+    ),
+    AutoRoute(
+      path: '/question-three',
+      page: QuestionThreePageRoute.page,
+    ),
   ];
 }
