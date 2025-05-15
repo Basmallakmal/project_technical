@@ -4,6 +4,7 @@ import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:project_technical/domain/model/post_model.dart';
+import 'package:project_technical/presentation/pages/question_one/state.dart';
 import 'package:project_technical/presentation/widget/error_page.dart';
 import 'package:project_technical/presentation/widget/question_one_widget/question_one_item.dart';
 import 'package:project_technical/presentation/widget/question_one_widget/question_one_loading_item.dart';
@@ -71,6 +72,42 @@ class _QuestionOnePageState extends State<QuestionOnePage> {
                       LanguageValue.question_1_desc,
                       style: Theme.of(context).textTheme.titleMedium,
                     ),
+                  ),
+                ),
+                SizedBox(height: 8),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ),
+                  child: Text(
+                    LanguageValue.choose_api_status,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ),
+                SizedBox(height: 8),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                  ),
+                  // create radio button group from FetchStatus enum
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ...FetchStatus.values.map((status) {
+                        return Column(
+                          children: [
+                            Radio<FetchStatus>(
+                              value: status,
+                              groupValue: provider.state.fetchStatus,
+                              onChanged: (value) {
+                                provider.updateFetchStatus(value!);
+                              },
+                            ),
+                            Text(status.name),
+                          ],
+                        );
+                      }),
+                    ],
                   ),
                 ),
                 SizedBox(height: 16),

@@ -84,15 +84,12 @@ class QuestionOneProvider extends ChangeNotifier {
     notifyListeners();
 
     // Check if the user is connected to the internet
-    if (!state.isConnected) {
-      getCachePostData();
-      return;
-    }
+    getCachePostData();
 
     try {
       var page = (state.pagingState.keys?.last ?? 0) + 1;
       ApiResponse<ListResponseModel<PostModel>> data =
-          await PostController().getPosts();
+          await PostController().getPosts(path: getAPIPath());
 
       appendPage(
         pageKey: page,
@@ -101,12 +98,8 @@ class QuestionOneProvider extends ChangeNotifier {
       );
     } catch (err) {
       String error = err.toString();
-
-      if (!state.isConnected) {
-        getCachePostData();
-        return;
-      }
-
+      // Check if the user is connected to the internet
+      getCachePostData();
       appendError(error: error);
       notifyListeners();
     }
@@ -118,6 +111,7 @@ class QuestionOneProvider extends ChangeNotifier {
   }
 
   void getCachePostData() {
+    if (state.isConnected || state.fetchStatus == FetchStatus.error) return;
     List<PostModel> cachedData = PostController().getCachePosts();
     var page = (state.pagingState.keys?.last ?? 0) + 1;
     appendPage(
@@ -129,5 +123,22 @@ class QuestionOneProvider extends ChangeNotifier {
     showScaffoldMessage(
         context: AppServices.context,
         message: LanguageValue.no_connection_get_data);
+  }
+
+  // Fetch status
+  String getAPIPath() {
+    switch (state.fetchStatus) {
+      case FetchStatus.success:
+        return state.apiPathSuccess;
+      case FetchStatus.error:
+        return state.apiPathError;
+    }
+  }
+
+  void updateFetchStatus(FetchStatus status) {
+    if (state.pagingState.isLoading) return;
+    state.fetchStatus = status;
+    notifyListeners();
+    refreshData();
   }
 }
