@@ -46,7 +46,7 @@
   "home": "Home",
   "home_menu_desc": "Where do you want to go?",
   "question_1": "Question 1",
-  "question_1_desc": "Fetch and Display API Data",
+  "question_1_desc": "Fetch and Display API Data + Offline Caching",
   "question_2": "Question 2",
   "question_2_desc": "Input Forms and Validation",
   "question_3": "Question 3",

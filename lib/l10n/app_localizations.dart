@@ -374,7 +374,7 @@ abstract class AppLocalizations {
   /// No description provided for @question_1_desc.
   ///
   /// In en, this message translates to:
-  /// **'Fetch and Display API Data'**
+  /// **'Fetch and Display API Data + Offline Caching'**
   String get question_1_desc;
 
   /// No description provided for @question_2.

@@ -46,7 +46,7 @@
   "home": "Home",
   "home_menu_desc": "Anda ingin pergi kemana?",
   "question_1": "Pertanyaan 1",
-  "question_1_desc": "Fetch and Display API Data",
+  "question_1_desc": "Fetch and Display API Data + Offline Caching",
   "question_2": "Pertanyaan 2",
   "question_2_desc": "Input Forms and Validation",
   "question_3": "Pertanyaan 3",

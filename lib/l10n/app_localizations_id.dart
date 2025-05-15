@@ -147,7 +147,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get question_1 => 'Pertanyaan 1';
 
   @override
-  String get question_1_desc => 'Fetch and Display API Data';
+  String get question_1_desc => 'Fetch and Display API Data + Offline Caching';
 
   @override
   String get question_2 => 'Pertanyaan 2';
