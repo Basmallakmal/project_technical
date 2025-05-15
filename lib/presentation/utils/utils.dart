@@ -2,8 +2,6 @@ import 'dart:io';
 import 'dart:math' as math;
 
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-
 
 class Utils {
   static String genereateRandomNumber(List<String> existingNumbers) {
@@ -52,45 +50,6 @@ class Utils {
   static String checkOS() {
     String os = Platform.operatingSystem;
     return os;
-  }
-
-  static void launchWhatsAppContactUs({
-    required String defaultPhone,
-    String defaultMessage = "",
-  }) async {
-    String url() {
-      if (Platform.isAndroid) {
-        return "https://wa.me/$defaultPhone/?text=${Uri.encodeFull(defaultMessage)}";
-      } else {
-        return "https://api.whatsapp.com/send?phone=$defaultPhone&text=${Uri.encodeFull(defaultMessage)}";
-      }
-    }
-
-    try {
-      await canLaunchUrlString(url());
-
-      launchUrlString(
-        url(),
-        mode: LaunchMode.externalApplication,
-      );
-    } catch (e) {
-      throw 'Could not launch ${url()} err: ${e.toString()}';
-    }
-  }
-
-  static void launchUrl({
-    required String url,
-  }) async {
-    try {
-      await canLaunchUrlString(url);
-
-      launchUrlString(
-        url,
-        mode: LaunchMode.externalApplication,
-      );
-    } catch (e) {
-      throw 'Could not launch $url err: ${e.toString()}';
-    }
   }
 
   static String convertDateTime({
