@@ -8,9 +8,11 @@ import 'package:project_technical/domain/repository/post_repository.dart';
 
 class PostController extends PostRepository {
   @override
-  Future<ApiResponse<ListResponseModel<PostModel>>> getPosts() async {
+  Future<ApiResponse<ListResponseModel<PostModel>>> getPosts({
+    required String path,
+  }) async {
     return ApiConstant().request(
-      path: ApiConstant.getPost,
+      path: path,
       method: MethodType.get,
       fromJsonT: (json) => ListResponseModel<PostModel>.fromJson(
         json,
