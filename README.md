@@ -14,6 +14,7 @@ Important pub packages:
 - [dio] (https://pub.dev/packages/dio)
 - [provider] (https://pub.dev/packages/provider)
 - [auto_route] (https://pub.dev/packages/auto_route)
+  [flutter_gen] (https://pub.dev/packages/flutter_gen)
 - [internationalization] (https://docs.flutter.dev/accessibility-and-localization/internationalization)
 
 
@@ -22,7 +23,8 @@ Important pub packages:
 3. Run `flutter pub get` to get all dependencies
 4. Run `dart run build_runner build -d` to build all generated files
 5. Run `flutter gen-l10n` to generate locale files
-6. Run `flutter run` to run this project
+6. Run `fluttergen -c pubspec.yaml` to generate all assets file
+7. Run `flutter run` to run this project
 
 ## Project Folder Structure
 
@@ -97,3 +99,9 @@ to use the service, just call AppServices class and call the service you want to
 1. Add new locale value in `lib/l10n/app_en.arb` and `lib/l10n/app_id.arb`
 2. Run `flutter gen-l10n` to generate new locale value
 3. Add new generated locale value in `lib/config/multilanguage/language_value.dart`
+
+## How to use flutter_gen assets
+
+1. Add new assets to assets folder
+2. Run `fluttergen -c pubspec.yaml` to generate new assets file
+3. Use the generated assets file in your widget
