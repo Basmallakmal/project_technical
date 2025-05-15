@@ -68,11 +68,16 @@ class HomePage extends StatelessWidget {
                           title: LanguageValue.question_1,
                         ),
                         MenuItem(
-                          onTap: () {},
+                          onTap: () {
+                            AppServices.navRouter.push(QuestionTwoPageRoute());
+                          },
                           title: LanguageValue.question_2,
                         ),
                         MenuItem(
-                          onTap: () {},
+                          onTap: () {
+                            AppServices.navRouter
+                                .push(QuestionThreePageRoute());
+                          },
                           title: LanguageValue.question_3,
                         ),
                       ],
