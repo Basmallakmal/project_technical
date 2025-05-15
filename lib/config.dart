@@ -18,7 +18,7 @@ class EnvironmentDetails {
 }
 
 class ConfigEnvironments {
-  static const String _currentEnvironments = Environments.PRODUCTION;
+  static const String _currentEnvironments = Environments.DEV;
   static final List<EnvironmentDetails> _availableEnvironments = [
     EnvironmentDetails(
       env: Environments.LOCAL,
