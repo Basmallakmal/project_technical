@@ -5,9 +5,12 @@ import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:project_technical/config/multilanguage/language_value.dart';
 import 'package:project_technical/config/session/app_sesion.dart';
+import 'package:project_technical/domain/model/api_response.dart';
 
 import '../../config.dart';
 import '../route/app_route.gr.dart';
+
+enum MethodType { get, post, put, delete, patch }
 
 class ApiConstant {
   static final ApiConstant _instance = ApiConstant.internal();
@@ -22,6 +25,7 @@ class ApiConstant {
   final dio = createDio();
   final rawDio = createRawDio();
 
+  // Dio
   static Dio createDio() {
     var dio = Dio(BaseOptions(
       baseUrl: baseUrl,
@@ -195,6 +199,7 @@ class ApiConstant {
     return dio;
   }
 
+  /// A raw Dio instance without any interceptors
   static Dio createRawDio() {
     var dio = Dio(BaseOptions(
       baseUrl: baseUrl,
@@ -260,6 +265,70 @@ class ApiConstant {
       },
     ));
     return dio;
+  }
+
+  Future<ApiResponse<T>> request<T>({
+    required String path,
+    required MethodType method,
+    Map<String, dynamic>? payload,
+    Map<String, dynamic>? queryParameters,
+    T Function(dynamic)? fromJsonT,
+  }) async {
+    ApiResponse<T> apiResponse;
+    Response response;
+    try {
+      switch (method) {
+        case MethodType.get:
+          response = await dio.get(
+            path,
+            data: payload,
+            queryParameters: queryParameters,
+          );
+          break;
+        case MethodType.post:
+          response = await dio.post(
+            path,
+            data: payload,
+            queryParameters: queryParameters,
+          );
+          break;
+        case MethodType.put:
+          response = await dio.put(
+            path,
+            data: payload,
+            queryParameters: queryParameters,
+          );
+          break;
+        case MethodType.delete:
+          response = await dio.delete(
+            path,
+            data: payload,
+            queryParameters: queryParameters,
+          );
+          break;
+        case MethodType.patch:
+          response = await dio.patch(
+            path,
+            data: payload,
+            queryParameters: queryParameters,
+          );
+          break;
+      }
+
+      apiResponse = ApiResponse(
+        data: fromJsonT?.call(response.data),
+        statusCode: response.statusCode.toString(),
+      );
+      return apiResponse;
+    } catch (err) {
+      log("request error: ${err.toString()}");
+      String errorMessage = LanguageValue.not_found_exception;
+      if (err is DioException) {
+        errorMessage = err.toString();
+      }
+
+      throw errorMessage;
+    }
   }
 
   /// POST
