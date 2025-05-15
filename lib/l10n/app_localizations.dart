@@ -458,7 +458,7 @@ abstract class AppLocalizations {
   /// No description provided for @no_connection_get_data.
   ///
   /// In en, this message translates to:
-  /// **'No connection, get data from cache'**
+  /// **'No connection, get lastest data from cache'**
   String get no_connection_get_data;
 
   /// No description provided for @detail_data.
@@ -466,6 +466,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Detail Data'**
   String get detail_data;
+
+  /// No description provided for @choose_api_status.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose API Status'**
+  String get choose_api_status;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

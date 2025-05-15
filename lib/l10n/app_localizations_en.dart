@@ -189,8 +189,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get indonesian => 'Indonesian';
 
   @override
-  String get no_connection_get_data => 'No connection, get data from cache';
+  String get no_connection_get_data => 'No connection, get lastest data from cache';
 
   @override
   String get detail_data => 'Detail Data';
+
+  @override
+  String get choose_api_status => 'Choose API Status';
 }

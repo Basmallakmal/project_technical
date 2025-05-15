@@ -189,8 +189,11 @@ class AppLocalizationsId extends AppLocalizations {
   String get indonesian => 'Indonesian';
 
   @override
-  String get no_connection_get_data => 'Tidak ada koneksi internet, data diambil dari cache';
+  String get no_connection_get_data => 'Tidak ada koneksi internet, mengambil data terakhir dari cache';
 
   @override
   String get detail_data => 'Detail Data';
+
+  @override
+  String get choose_api_status => 'Pilihan Status API';
 }

@@ -152,6 +152,14 @@ class LanguageValue {
   static String get change_language_confirmation =>
       AppLocalizations.of(AppServices.context)!.change_language_confirmation;
 
+  /// QUESTION 1
+
+  static String get choose_api_status =>
+      AppLocalizations.of(AppServices.context)!.choose_api_status;
+
+  static String get detail_data =>
+      AppLocalizations.of(AppServices.context)!.detail_data;
+
   /// GENERAL STRING
 
   static String get no_internet_connection =>
@@ -184,7 +192,4 @@ class LanguageValue {
 
   static String get no_connection_get_data =>
       AppLocalizations.of(AppServices.context)!.no_connection_get_data;
-
-  static String get detail_data =>
-      AppLocalizations.of(AppServices.context)!.detail_data;
 }
