@@ -203,6 +203,18 @@ abstract class AppLocalizations {
   /// **'Username cannot be empty'**
   String get username_empty;
 
+  /// No description provided for @full_name.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get full_name;
+
+  /// No description provided for @full_name_empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name cannot be empty'**
+  String get full_name_empty;
+
   /// No description provided for @main_menu.
   ///
   /// In en, this message translates to:
@@ -334,6 +346,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Too many requests, please try again later.'**
   String get too_many_requests_exception;
+
+  /// No description provided for @welcome_message.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to our App!'**
+  String get welcome_message;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @home_menu_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Where do you want to go?'**
+  String get home_menu_desc;
+
+  /// No description provided for @question_1.
+  ///
+  /// In en, this message translates to:
+  /// **'Question 1'**
+  String get question_1;
+
+  /// No description provided for @question_1_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Fetch and Display API Data'**
+  String get question_1_desc;
+
+  /// No description provided for @question_2.
+  ///
+  /// In en, this message translates to:
+  /// **'Question 2'**
+  String get question_2;
+
+  /// No description provided for @question_2_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Input Forms and Validation'**
+  String get question_2_desc;
+
+  /// No description provided for @question_3.
+  ///
+  /// In en, this message translates to:
+  /// **'Question 3'**
+  String get question_3;
+
+  /// No description provided for @question_3_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Counter with State Management'**
+  String get question_3_desc;
+
+  /// No description provided for @input_form.
+  ///
+  /// In en, this message translates to:
+  /// **'Input Form'**
+  String get input_form;
+
+  /// No description provided for @refresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
+  String get refresh;
+
+  /// No description provided for @submit.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit'**
+  String get submit;
+
+  /// No description provided for @change_language.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Language'**
+  String get change_language;
+
+  /// No description provided for @change_language_desc.
+  ///
+  /// In en, this message translates to:
+  /// **'Select your preferred language'**
+  String get change_language_desc;
+
+  /// No description provided for @change_language_confirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to change the language?'**
+  String get change_language_confirmation;
+
+  /// No description provided for @english.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get english;
+
+  /// No description provided for @indonesian.
+  ///
+  /// In en, this message translates to:
+  /// **'Indonesian'**
+  String get indonesian;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
