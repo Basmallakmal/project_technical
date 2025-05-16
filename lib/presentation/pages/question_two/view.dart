@@ -94,6 +94,7 @@ class QuestionTwoPageState extends State<QuestionTwoPage> {
                     CustomTextInput.inputTextStyleLogin(
                       controller: provider.state.emailController,
                       labelText: LanguageValue.email,
+                      keyboardType: TextInputType.emailAddress,
                       onTapOutside: (event) {
                         FocusScope.of(context).requestFocus(FocusNode());
                       },
