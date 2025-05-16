@@ -183,10 +183,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get change_language_confirmation => 'Apakah Anda yakin ingin mengubah bahasa?';
 
   @override
-  String get english => 'English';
+  String get english => 'Bahasa Inggris';
 
   @override
-  String get indonesian => 'Indonesian';
+  String get indonesian => 'Bahasa Indonesia';
 
   @override
   String get no_connection_get_data => 'Tidak ada koneksi internet, mengambil data terakhir dari cache';

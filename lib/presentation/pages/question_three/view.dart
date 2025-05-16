@@ -69,9 +69,11 @@ class QuestionThreePageState extends State<QuestionThreePage> {
                     spacing: 16,
                     children: [
                       FilledButton(
-                        onPressed: () {
-                          provider.decrement();
-                        },
+                        onPressed: provider.state.count == 0
+                            ? null
+                            : () {
+                                provider.decrement();
+                              },
                         style: FilledButton.styleFrom(
                           backgroundColor: Theme.of(context).colorScheme.error,
                           iconSize: 32,
