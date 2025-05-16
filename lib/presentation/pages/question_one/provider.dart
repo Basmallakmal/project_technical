@@ -10,27 +10,15 @@ import 'package:project_technical/domain/controller/post_controller.dart';
 import 'package:project_technical/domain/model/api_response.dart';
 import 'package:project_technical/domain/model/list_reponse_model.dart';
 import 'package:project_technical/domain/model/post_model.dart';
+import 'package:project_technical/presentation/pages/home/provider.dart';
 import 'package:project_technical/presentation/utils/app_services.dart';
 import 'package:project_technical/presentation/utils/show_scaffold_msg.dart';
+import 'package:provider/provider.dart';
 
 import 'state.dart';
 
 class QuestionOneProvider extends ChangeNotifier {
   final state = QuestionOneState();
-
-  QuestionOneProvider() {
-    state.internetStatusSubscription =
-        InternetConnection().onStatusChange.listen((InternetStatus status) {
-      updateInternetStatus(status == InternetStatus.connected ? true : false);
-    });
-    notifyListeners();
-  }
-
-  @override
-  void dispose() {
-    state.internetStatusSubscription?.cancel();
-    super.dispose();
-  }
 
   /// PAGING STATE
   void resetState() {
@@ -76,15 +64,11 @@ class QuestionOneProvider extends ChangeNotifier {
   void getPostData() async {
     // Check if the current page is loading
     if (state.pagingState.isLoading) return;
-
     state.pagingState = state.pagingState.copyWith(
       isLoading: true,
       error: null,
     );
     notifyListeners();
-
-    // Check if the user is connected to the internet
-    getCachePostData();
 
     try {
       var page = (state.pagingState.keys?.last ?? 0) + 1;
@@ -105,13 +89,12 @@ class QuestionOneProvider extends ChangeNotifier {
     }
   }
 
-  void updateInternetStatus(bool connected) {
-    state.isConnected = connected;
-    notifyListeners();
-  }
-
   void getCachePostData() {
-    if (state.isConnected || state.fetchStatus == FetchStatus.error) return;
+    bool isConnected = AppServices.context
+        .read<HomeProvider>()
+        .state
+        .isConnected; //  get isConnected from home provider
+    if (isConnected || state.fetchStatus == FetchStatus.error) return;
     List<PostModel> cachedData = PostController().getCachePosts();
     var page = (state.pagingState.keys?.last ?? 0) + 1;
     appendPage(
