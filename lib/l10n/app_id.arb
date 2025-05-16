@@ -58,8 +58,8 @@
   "change_language": "Ubah Bahasa",
   "change_language_desc": "Silahkan pilih bahasa yang Anda inginkan",
   "change_language_confirmation": "Apakah Anda yakin ingin mengubah bahasa?",
-  "english": "English",
-  "indonesian": "Indonesian",
+  "english": "Bahasa Inggris",
+  "indonesian": "Bahasa Indonesia",
   "no_connection_get_data": "Tidak ada koneksi internet, mengambil data terakhir dari cache",
   "detail_data": "Detail Data",
   "choose_api_status": "Pilihan Status API"
