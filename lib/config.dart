@@ -27,7 +27,7 @@ class ConfigEnvironments {
     ),
     EnvironmentDetails(
       env: Environments.DEV,
-      url: '',
+      url: 'https://jsonplaceholder.typicode.com/',
       urlMedia: '',
     ),
     EnvironmentDetails(
@@ -37,7 +37,7 @@ class ConfigEnvironments {
     ),
     EnvironmentDetails(
       env: Environments.PRODUCTION,
-      url: '',
+      url: 'https://jsonplaceholder.typicode.com/',
       urlMedia: '',
     ),
   ];

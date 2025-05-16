@@ -63,6 +63,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get username_empty => 'Username cannot be empty';
 
   @override
+  String get full_name => 'Full Name';
+
+  @override
+  String get full_name_empty => 'Full Name cannot be empty';
+
+  @override
   String get main_menu => 'Main Menu';
 
   @override
@@ -127,4 +133,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get too_many_requests_exception => 'Too many requests, please try again later.';
+
+  @override
+  String get welcome_message => 'Welcome to our App!';
+
+  @override
+  String get home => 'Home';
+
+  @override
+  String get home_menu_desc => 'Where do you want to go?';
+
+  @override
+  String get question_1 => 'Question 1';
+
+  @override
+  String get question_1_desc => 'Fetch and Display API Data + Offline Caching';
+
+  @override
+  String get question_2 => 'Question 2';
+
+  @override
+  String get question_2_desc => 'Input Forms and Validation';
+
+  @override
+  String get question_3 => 'Question 3';
+
+  @override
+  String get question_3_desc => 'Counter with State Management';
+
+  @override
+  String get input_form => 'Input Form';
+
+  @override
+  String get refresh => 'Refresh';
+
+  @override
+  String get submit => 'Submit';
+
+  @override
+  String get empty_data => 'Data not found';
+
+  @override
+  String get change_language => 'Change Language';
+
+  @override
+  String get change_language_desc => 'Select your preferred language';
+
+  @override
+  String get change_language_confirmation => 'Are you sure you want to change the language?';
+
+  @override
+  String get english => 'English';
+
+  @override
+  String get indonesian => 'Indonesian';
+
+  @override
+  String get no_connection_get_data => 'No connection, get lastest data from cache';
+
+  @override
+  String get detail_data => 'Detail Data';
+
+  @override
+  String get choose_api_status => 'Choose API Status';
 }

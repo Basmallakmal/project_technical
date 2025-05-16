@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:project_i/config.dart';
+import 'package:project_technical/config.dart';
 
 void main() async {
   TestWidgetsFlutterBinding.ensureInitialized();

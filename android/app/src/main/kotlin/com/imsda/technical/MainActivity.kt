@@ -1,4 +1,4 @@
-package com.imsda.project_i
+package com.imsda.technical
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,14 +1,21 @@
-
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_ce_flutter/adapters.dart';
-import 'package:project_i/presentation/utils/language_support.dart';
+import 'package:project_technical/domain/model/post_model.dart';
+import 'package:project_technical/presentation/utils/language_support.dart';
 
 class AppSession {
-  static FlutterSecureStorage storage = const FlutterSecureStorage();
+  static FlutterSecureStorage storage = FlutterSecureStorage(
+    aOptions: AndroidOptions(
+      encryptedSharedPreferences: true,
+      sharedPreferencesName: hiveSession,
+    ),
+  );
 
   static String keyToken = "token";
   static String keyId = "id";
-  static String hiveSession = "project-i-session-hive";
+  static String hiveSession = "project-tech-session-hive";
+
+  static String hivePostData = "post-data-hive";
 
   static String keyName = "name";
   static String keyUsername = "username";
@@ -39,6 +46,7 @@ class AppSession {
 
   Future openBox() async {
     await Hive.openBox(hiveSession);
+    await Hive.openBox<PostModel>(hivePostData);
   }
 
   saveName(String value, {Box? setBox}) {
@@ -91,27 +99,16 @@ class AppSession {
     return box.get(keyAccountVerif, defaultValue: false);
   }
 
-  saveLanguage(String region, {Box? setBox}) {
+  saveLanguage(LanguageSupport lang, {Box? setBox}) {
     var box = setBox ?? Hive.box(hiveSession);
-    switch (region) {
-      case "ID":
-        region = LanguageSupport.id.value;
-        break;
-      case "EN":
-        region = LanguageSupport.en.value;
-        break;
-      default:
-        region = LanguageSupport.id.value;
-        break;
-    }
-    if (region != getLanguage()) {
-      box.put(keyLanguage, region);
+    if (lang.value != getLanguage()) {
+      box.put(keyLanguage, lang.value);
     }
   }
 
   String getLanguage({Box? setBox}) {
     var box = setBox ?? Hive.box(hiveSession);
-    return box.get(keyLanguage, defaultValue: LanguageSupport.id.value);
+    return box.get(keyLanguage, defaultValue: LanguageSupport.en.value);
   }
 
   /// MAIN FUNCTION
@@ -131,7 +128,7 @@ class AppSession {
     await savePhotoProfile(photo);
     await saveUserRole(role);
     await saveAccVerifStatus(accountVerif);
-    await saveLanguage(language);
+    await saveLanguage(LanguageSupportHelper.getLanguageSupport(language));
   }
 
   Future deleteAppSession() async {

@@ -1,16 +1,22 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_ce_flutter/adapters.dart';
-import 'package:project_i/config/route/app_route.dart';
-import 'package:project_i/config/route/route_observer.dart';
-import 'package:project_i/config/session/app_sesion.dart';
-import 'package:project_i/config/theme/theme.dart';
-import 'package:project_i/l10n/app_localizations.dart';
-import 'package:project_i/presentation/pages/dashboard/provider.dart';
+import 'package:project_technical/config/route/app_route.dart';
+import 'package:project_technical/config/route/route_observer.dart';
+import 'package:project_technical/config/session/app_sesion.dart';
+import 'package:project_technical/config/theme/theme.dart';
+import 'package:project_technical/hive/hive_registrar.g.dart';
+import 'package:project_technical/l10n/app_localizations.dart';
+import 'package:project_technical/presentation/pages/home/provider.dart';
+import 'package:project_technical/presentation/pages/question_one/provider.dart';
+import 'package:project_technical/presentation/pages/question_three/provider.dart';
+import 'package:project_technical/presentation/pages/question_two/provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -19,11 +25,17 @@ final getIt = GetIt.instance;
 void main() async {
   HttpOverrides.global = IgnoreCertificateErrorOverrides();
   WidgetsFlutterBinding.ensureInitialized();
+  LicenseRegistry.addLicense(() async* {
+    final license = await rootBundle.loadString('google_fonts/OFL.txt');
+    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+  });
 
   // Other
   getIt.registerSingleton<AppRouter>(AppRouter());
   await Hive.initFlutter();
+  Hive.registerAdapters();
   await AppSession().openBox();
+  GoogleFonts.config.allowRuntimeFetching = false;
 
   runApp(const MyApp());
 }
@@ -52,7 +64,10 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => DashboardProvider()),
+        ChangeNotifierProvider(create: (context) => HomeProvider()),
+        ChangeNotifierProvider(create: (context) => QuestionOneProvider()),
+        ChangeNotifierProvider(create: (context) => QuestionTwoProvider()),
+        ChangeNotifierProvider(create: (context) => QuestionThreeProvider()),
       ],
       child: ValueListenableBuilder<Box>(
           valueListenable: Hive.box(AppSession.hiveSession).listenable(),
@@ -79,8 +94,8 @@ class MyAppState extends State<MyApp> {
                 Locale('id'),
               ],
               debugShowCheckedModeBanner: false,
-              title: 'Project I',
-              theme: kappTheme,
+              title: 'Project Technical',
+              theme: MaterialTheme(createTextTheme(context)).mainTheme(),
             );
           }),
     );

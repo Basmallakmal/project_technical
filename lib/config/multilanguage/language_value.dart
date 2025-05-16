@@ -1,4 +1,4 @@
-import 'package:project_i/l10n/app_localizations.dart';
+import 'package:project_technical/l10n/app_localizations.dart';
 
 import '../../presentation/utils/app_services.dart';
 
@@ -34,6 +34,12 @@ class LanguageValue {
 
   static String get phone_number_empty =>
       AppLocalizations.of(AppServices.context)!.phone_number_empty;
+
+  static String get full_name =>
+      AppLocalizations.of(AppServices.context)!.full_name;
+
+  static String get full_name_empty =>
+      AppLocalizations.of(AppServices.context)!.full_name_empty;
 
   /// NETWORK ERROR STRING
   static String get something_went_wrong =>
@@ -109,6 +115,51 @@ class LanguageValue {
   static String get validate_password =>
       AppLocalizations.of(AppServices.context)!.validate_password;
 
+  /// HOME STRING
+
+  static String get welcome_message =>
+      AppLocalizations.of(AppServices.context)!.welcome_message;
+
+  static String get home => AppLocalizations.of(AppServices.context)!.home;
+
+  static String get home_menu_desc =>
+      AppLocalizations.of(AppServices.context)!.home_menu_desc;
+
+  static String get question_1 =>
+      AppLocalizations.of(AppServices.context)!.question_1;
+
+  static String get question_1_desc =>
+      AppLocalizations.of(AppServices.context)!.question_1_desc;
+
+  static String get question_2 =>
+      AppLocalizations.of(AppServices.context)!.question_2;
+
+  static String get question_2_desc =>
+      AppLocalizations.of(AppServices.context)!.question_2_desc;
+
+  static String get question_3 =>
+      AppLocalizations.of(AppServices.context)!.question_3;
+
+  static String get question_3_desc =>
+      AppLocalizations.of(AppServices.context)!.question_3_desc;
+
+  static String get change_language =>
+      AppLocalizations.of(AppServices.context)!.change_language;
+
+  static String get change_language_desc =>
+      AppLocalizations.of(AppServices.context)!.change_language_desc;
+
+  static String get change_language_confirmation =>
+      AppLocalizations.of(AppServices.context)!.change_language_confirmation;
+
+  /// QUESTION 1
+
+  static String get choose_api_status =>
+      AppLocalizations.of(AppServices.context)!.choose_api_status;
+
+  static String get detail_data =>
+      AppLocalizations.of(AppServices.context)!.detail_data;
+
   /// GENERAL STRING
 
   static String get no_internet_connection =>
@@ -121,4 +172,24 @@ class LanguageValue {
   static String get ok => AppLocalizations.of(AppServices.context)!.ok;
 
   static String get yes => AppLocalizations.of(AppServices.context)!.yes;
+
+  static String get input_form =>
+      AppLocalizations.of(AppServices.context)!.input_form;
+
+  static String get refresh =>
+      AppLocalizations.of(AppServices.context)!.refresh;
+
+  static String get submit => AppLocalizations.of(AppServices.context)!.submit;
+
+  static String get english =>
+      AppLocalizations.of(AppServices.context)!.english;
+
+  static String get indonesian =>
+      AppLocalizations.of(AppServices.context)!.indonesian;
+
+  static String get empty_data =>
+      AppLocalizations.of(AppServices.context)!.empty_data;
+
+  static String get no_connection_get_data =>
+      AppLocalizations.of(AppServices.context)!.no_connection_get_data;
 }
