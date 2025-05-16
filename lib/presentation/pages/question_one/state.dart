@@ -13,10 +13,8 @@ enum FetchStatus {
 
 class QuestionOneState {
   bool isLoading = false;
-  bool isConnected = true;
 
   PagingState<int, PostModel> pagingState = PagingState();
-  StreamSubscription<InternetStatus>? internetStatusSubscription;
   final String apiPathSuccess = ApiConstant.getPost;
   final String apiPathError = "${ApiConstant.getPost}ss";
 
