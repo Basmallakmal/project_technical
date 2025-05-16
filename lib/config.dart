@@ -18,7 +18,7 @@ class EnvironmentDetails {
 }
 
 class ConfigEnvironments {
-  static const String _currentEnvironments = Environments.DEV;
+  static const String _currentEnvironments = Environments.PRODUCTION;
   static final List<EnvironmentDetails> _availableEnvironments = [
     EnvironmentDetails(
       env: Environments.LOCAL,
@@ -37,7 +37,7 @@ class ConfigEnvironments {
     ),
     EnvironmentDetails(
       env: Environments.PRODUCTION,
-      url: '',
+      url: 'https://jsonplaceholder.typicode.com/',
       urlMedia: '',
     ),
   ];
