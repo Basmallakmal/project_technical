@@ -111,7 +111,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get bad_request_exception => 'Permintaan tidak valid';
 
   @override
-  String get internal_server_error_exception => 'Terjadi kesalahan pada server, silahkan coba lagi.';
+  String get internal_server_error_exception =>
+      'Terjadi kesalahan pada server, silahkan coba lagi.';
 
   @override
   String get conflict_exception => 'Terjadi konflik, silahkan coba lagi.';
@@ -126,13 +127,15 @@ class AppLocalizationsId extends AppLocalizations {
   String get not_found_exception => 'Data tidak ditemukan';
 
   @override
-  String get no_interent_connection => 'Tidak ada koneksi internet, silahkan coba lagi.';
+  String get no_interent_connection =>
+      'Tidak ada koneksi internet, silahkan coba lagi.';
 
   @override
   String get timeout_exception => 'Koneksi terputus, silahkan coba lagi.';
 
   @override
-  String get too_many_requests_exception => 'Terlalu banyak permintaan, silahkan coba lagi.';
+  String get too_many_requests_exception =>
+      'Terlalu banyak permintaan, silahkan coba lagi.';
 
   @override
   String get welcome_message => 'Selamat Datang di Aplikasi Kami!';
@@ -180,7 +183,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get change_language_desc => 'Silahkan pilih bahasa yang Anda inginkan';
 
   @override
-  String get change_language_confirmation => 'Apakah Anda yakin ingin mengubah bahasa?';
+  String get change_language_confirmation =>
+      'Apakah Anda yakin ingin mengubah bahasa?';
 
   @override
   String get english => 'Bahasa Inggris';
@@ -189,7 +193,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get indonesian => 'Bahasa Indonesia';
 
   @override
-  String get no_connection_get_data => 'Tidak ada koneksi internet, mengambil data terakhir dari cache';
+  String get no_connection_get_data =>
+      'Tidak ada koneksi internet, mengambil data terakhir dari cache';
 
   @override
   String get detail_data => 'Detail Data';

@@ -111,7 +111,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get bad_request_exception => 'Invalid Request';
 
   @override
-  String get internal_server_error_exception => 'Unknown error occurred, please try again later.';
+  String get internal_server_error_exception =>
+      'Unknown error occurred, please try again later.';
 
   @override
   String get conflict_exception => 'Conflict occurred';
@@ -123,16 +124,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unverified_exception => 'Access denied';
 
   @override
-  String get not_found_exception => 'The requested information could not be found';
+  String get not_found_exception =>
+      'The requested information could not be found';
 
   @override
-  String get no_interent_connection => 'No internet connection detected, please try again.';
+  String get no_interent_connection =>
+      'No internet connection detected, please try again.';
 
   @override
-  String get timeout_exception => 'The connection has timed out, please try again.';
+  String get timeout_exception =>
+      'The connection has timed out, please try again.';
 
   @override
-  String get too_many_requests_exception => 'Too many requests, please try again later.';
+  String get too_many_requests_exception =>
+      'Too many requests, please try again later.';
 
   @override
   String get welcome_message => 'Welcome to our App!';
@@ -180,7 +185,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get change_language_desc => 'Select your preferred language';
 
   @override
-  String get change_language_confirmation => 'Are you sure you want to change the language?';
+  String get change_language_confirmation =>
+      'Are you sure you want to change the language?';
 
   @override
   String get english => 'English';
@@ -189,7 +195,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get indonesian => 'Indonesian';
 
   @override
-  String get no_connection_get_data => 'No connection, get lastest data from cache';
+  String get no_connection_get_data =>
+      'No connection, get lastest data from cache';
 
   @override
   String get detail_data => 'Detail Data';
